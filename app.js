@@ -53,6 +53,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ]
 
     const grid = document.querySelector('.grid')
+    const resultDisplay = document.querySelector('#result')
     var cardsChosen = []
     var cardsChosenId = []
 
@@ -83,6 +84,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         cardsChosen = []
         cardsChosenId = []
+        resultDisplay.textContent = cardsWon.length
+        if (cardsWon.length === cardArray.length/2) {
+            resultDisplay.textContent = 'CONGRATULATIONS! You found all the matches!'
+        }
     }
 
     function flipCard(){
