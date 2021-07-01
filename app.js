@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
             var card = document.createElement('img')
             card.setAttribute('src', 'images/blank.jpg')
             card.setAttribute('data-id', i)
-            // card.addEventListener('click', flipCard)
+            card.addEventListener('click', flipCard)
             grid.appendChild(card)
         }
     }
@@ -73,7 +73,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const optionTwoId = cardsChosenId[1]
         if (cardsChosen[0] === cardsChosen[1]) {
             alert('You found a match!')
+            cards[optionOneId].setAttribute('src', 'images/white.jpeg')
+            cards[optionTwoId].setAttribute('src', 'images/white.jpeg')
+            cardsWon.push(cardsChosen)
+        } else {
+            cards[optionOneId].setAttribute('src', 'images/blank.jpg')
+            cards[optionTwoId].setAttribute('src', 'images/blank.jpg')
+            alert('Try again')
         }
+        cardsChosen = []
+        cardsChosenId = []
     }
 
     function flipCard(){
